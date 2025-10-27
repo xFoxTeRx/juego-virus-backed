@@ -1,7 +1,7 @@
 // ===================================================================
 // VARIABLES GLOBALES DE CONFIGURACIÓN Y ESTADO
 // ===================================================================
-require('dotenv').config();
+
 // --- Configuración de Conexión ---
 // Reemplaza con tu CLIENT_ID real de Google
 const CLIENT_ID = process.env.CLIENT_ID;

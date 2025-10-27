@@ -1,7 +1,7 @@
 // ===================================================================
 // session.js: MÓDULO DE PERSISTENCIA Y CRUD DE GOOGLE
 // ===================================================================
-require('dotenv').config();
+
 // --- VARIABLES GLOBALES DE CONFIGURACIÓN Y ESTADO ---
 const CLIENT_ID = process.env.CLIENT_ID;
 const API_HOST = "https://juegos-virus-api.onrender.com";
