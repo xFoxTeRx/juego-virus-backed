@@ -6,7 +6,7 @@
 // Reemplaza con tu CLIENT_ID real de Google
 const CLIENT_ID = window.CLIENT_ID;
 // La URL base de tu Servidor Backend (debe estar corriendo en tu terminal)
-const API_HOST = "https://juegos-virus-api.onrender.com"; 
+const API_HOST = "https://juego-virus-backed.onrender.com"; 
 const LOGIN_API_URL = `${API_HOST}/api/auth/google`; 
 const SAVE_API_URL = `${API_HOST}/api/juegos/guardar`; 
 

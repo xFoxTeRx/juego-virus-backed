@@ -4,7 +4,7 @@
 
 // --- VARIABLES GLOBALES DE CONFIGURACIÓN Y ESTADO ---
 const CLIENT_ID = window.CLIENT_ID;
-const API_HOST = "https://juegos-virus-api.onrender.com";
+const API_HOST = "https://juego-virus-backed.onrender.com";
 const LOGIN_API_URL = `${API_HOST}/api/auth/google`;
 const SAVE_API_URL = `${API_HOST}/api/juegos/guardar`;
 const LEADERBOARD_API_URL = `${API_HOST}/api/leaderboard`;

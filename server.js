@@ -47,7 +47,7 @@ app.use(cors({
         'http://cochabamba.free.nf',
         'http://localhost:5500', 
         'http://127.0.0.1:5501',
-        'https://juegos-virus-api.onrender.com']
+        'https://juego-virus-backed.onrender.com']
 }));
 
 // --- Conexión a MongoDB ---
