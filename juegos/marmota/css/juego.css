@@ -1,0 +1,489 @@
+/* === Estilos generales === */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Comic Sans MS', sans-serif;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  background: url('/juegos/marmota/img/fondo.png') no-repeat center center fixed;
+  background-size: cover;
+}
+.fondo-juego {
+  position: fixed; /* siempre detrás */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ajusta sin deformar */
+  z-index: -1; /* atrás de todo */
+}
+
+/* === Contenedor principal === */
+.juego-container {
+  position: relative;
+  width: 900px;
+  height: 600px;
+  background: url("img/fondo-juego.jpg") no-repeat center center;
+  background-size: cover;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+
+/* === Cabecera del juego === */
+.juego-header {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.tiempo-box {
+  background: url("img/cartel-tiempo.png") no-repeat center center;
+  background-size: contain;
+  width: 160px;
+  height: 70px;
+  text-align: center;
+  color: #ffb100;
+  font-weight: bold;
+  text-shadow: 2px 2px 2px #000;
+}
+
+.tiempo-box h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.tiempo-box p {
+  margin: 0;
+  color: black;
+  font-weight: 600;
+}
+
+.btn-pausa {
+  background: transparent;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #fff;
+  transition: transform 0.2s;
+}
+
+.btn-pausa:hover {
+  transform: scale(1.2);
+}
+
+/* === Panel lateral (puntaje y fallas) === */
+.panel-info {
+  position: absolute;
+  top: 100px;
+  left: 40px;
+  color: black;
+  font-size: 22px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #fff;
+  z-index: 5;
+}
+
+/* === Zona de agujeros === */
+.zona-agujeros {
+  position: absolute;
+  top: 160px;
+  left: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.fila {
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+}
+
+.agujero {
+  position: relative;
+  width: 120px;
+  height: 90px;
+}
+
+.agujero img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.agujero img:hover {
+  transform: scale(1.1);
+}
+
+/* Ajuste específico para el penúltimo agujero */
+.zona-agujeros .fila:last-child .agujero:nth-last-child(2) {
+  margin-top: 42px;
+}
+
+/* === Marmota === */
+.marmota {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100px;
+  height: auto;
+  transition: transform 0.2s;
+}
+
+.marmota:hover {
+  transform: scale(1.1);
+}
+
+/* === Marmota objetivo (derecha) === */
+.objetivo {
+  position: absolute;
+  right: 60px;
+  bottom: 40px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px 2px #000;
+}
+
+.objetivo img {
+  width: 120px;
+  height: auto;
+}
+
+.objetivo p {
+  background: #8b4513;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 12px;
+  margin-top: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.objetivo p:hover {
+  background: #d97706;
+}
+
+/* === Menú de pausa === */
+.menu-pausa {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.menu-pausa-contenido {
+  background: rgba(0,0,0,0.7);
+  padding: 30px 50px;
+  border-radius: 15px;
+  text-align: center;
+  color: #fff;
+  font-family: 'Comic Sans MS', sans-serif;
+}
+
+.menu-pausa-contenido button {
+  display: block;
+  margin: 10px auto;
+  padding: 12px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+  background: url("img/fondoboton.png") no-repeat center center;
+  background-size: cover;
+  color: #fff;
+}
+
+.menu-pausa-contenido button:hover {
+  transform: scale(1.1);
+  background: #d97706;
+  color: #fff;
+}
+
+/* === 📱 RESPONSIVE: móviles (hasta 500px) === */
+@media screen and (max-width: 500px) {
+  body {
+    background-size: cover;
+    align-items: flex-start;
+  }
+
+  .juego-container {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+    background-position: center;
+  }
+
+  /* Header fijo arriba */
+  .juego-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    justify-content: space-between;
+    padding: 10px 15px;
+    z-index: 100;
+  }
+
+  .tiempo-box {
+    width: 110px;
+    height: 50px;
+    font-size: 14px;
+  }
+
+  .tiempo-box h2 {
+    font-size: 16px;
+  }
+
+  .tiempo-box p {
+    font-size: 12px;
+  }
+
+  .btn-pausa {
+    font-size: 26px;
+  }
+
+  /* Puntaje y fallas debajo del header */
+  .panel-info {
+    position: fixed;
+    top: 60px;
+    left: 10px;
+    font-size: 16px;
+    text-shadow: 1px 1px 2px #fff;
+    z-index: 90;
+  }
+
+  /* Zona de agujeros centrada */
+  .zona-agujeros {
+    position: relative;
+    top: 110px;
+    left: 0;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    justify-items: center;
+    width: 100%;
+  }
+
+  .agujero {
+    width: 80px;
+    height: 70px;
+  }
+
+  .agujero img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .marmota {
+    width: 60px;
+  }
+
+  /* Marmota objetivo al fondo */
+  .objetivo {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .objetivo img {
+    width: 80px;
+  }
+
+  .objetivo p {
+    font-size: 14px;
+    padding: 6px 14px;
+  }
+
+  /* Menú de pausa adaptado */
+  .menu-pausa-contenido {
+    padding: 20px 30px;
+    font-size: 14px;
+  }
+
+  .menu-pausa-contenido h2 {
+    font-size: 22px;
+  }
+
+  .menu-pausa-contenido button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+}
+
+/* === 📱 Extra pequeño (320px) === */
+@media screen and (max-width: 350px) {
+  .tiempo-box {
+    width: 95px;
+    height: 45px;
+  }
+
+  .panel-info {
+    font-size: 14px;
+  }
+
+  .agujero {
+    width: 70px;
+    height: 65px;
+  }
+
+  .agujero img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .marmota {
+    width: 55px;
+  }
+
+  .objetivo img {
+    width: 70px;
+  }
+
+  .objetivo p {
+    font-size: 12px;
+  }
+}
+/**/
+
+@media screen and (max-width: 600px) {
+  body {
+    background: url("/img/fondo.png") no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  .juego-container {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+    background-position: center;
+  }
+
+  .juego-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    justify-content: space-between;
+    padding: 8px 12px;
+  }
+
+  .tiempo-box {
+    width: 90px;
+    height: 40px;
+    background-size: contain;
+    font-size: 12px;
+  }
+
+  .tiempo-box h2 {
+    font-size: 14px;
+  }
+
+  .tiempo-box p {
+    font-size: 11px;
+  }
+
+  .btn-pausa {
+    font-size: 22px;
+  }
+
+  .panel-info {
+    position: fixed;
+    top: 50px;
+    left: 10px;
+    font-size: 13px;
+  }
+
+  /* Ajustes para la zona de agujeros */
+  .zona-agujeros {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    justify-items: center;
+    align-items: center;
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 120px;
+  }
+
+  /* Se eliminan las filas para móviles */
+  .zona-agujeros .fila {
+    display: contents;
+  }
+
+  .agujero {
+    width: 90px;
+    height: 75px;
+  }
+
+  .agujero img {
+    width: 90px;
+    height: 75px;
+  }
+
+  /* Marmota y botón "Atrápame" */
+  .marmota {
+    width: 70px;
+    bottom: 20px;
+  }
+
+  .objetivo {
+    position: relative;
+    margin-top: 150px;
+    text-align: center;
+  }
+
+  .objetivo img {
+    width: 76px;
+  }
+
+  .objetivo p {
+    font-size: 11px;
+    padding: 5px 10px;
+    border-radius: 8px;
+  }
+
+  /* Menú de pausa */
+  .menu-pausa-contenido {
+    padding: 15px 25px;
+    font-size: 13px;
+  }
+
+  .menu-pausa-contenido button {
+    padding: 8px 18px;
+    font-size: 14px;
+  }
+
+  .tiempo-box p {
+
+    color: rgb(239, 238, 238);
+
+   }
+}
+/*//////////////////////////////////////////*/

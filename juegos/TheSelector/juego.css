@@ -1,0 +1,248 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #111;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden; 
+}
+
+/* --- ESTILOS DE FONDO GLITCH (Tensión Visual) --- */
+#fondo-glitch {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    height: 100vh;  
+    z-index: 1; 
+    
+    background-image: url('../../images/razon1.png');
+    background-repeat: repeat-x; 
+    background-position: bottom center; 
+    background-size: 1500px auto; 
+    opacity: 0.15; 
+    
+    animation: ciudad-desplazamiento 20s linear infinite; 
+}
+
+@keyframes ciudad-desplazamiento {
+    0% { background-position-x: 0; }
+    100% { background-position-x: 1500px; } 
+}
+
+.fondo-agresivo {
+    animation: ciudad-flicker 0.5s infinite alternate; 
+}
+
+@keyframes ciudad-flicker {
+    0% { filter: brightness(1.5) contrast(2); opacity: 0.5; } 
+    100% { filter: brightness(1) contrast(1); opacity: 0.15; } 
+}
+
+/* --- INTERFAZ DEL JUEGO --- */
+#contenedor-juego {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 600px;
+    border: 3px solid rgba(255, 0, 0, 0); 
+    padding: 20px;
+    background-color: #22222200; 
+    margin-bottom: 20px;
+    position: relative; 
+    z-index: 10;
+    transition: border-color 0.5s;
+}
+
+#area-tension {
+    height: 150px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #ccc;
+    border-bottom: 1px solid #444; 
+    text-align: center;
+    position: relative; 
+    z-index: 10;
+}
+
+#cuadricula-suelo {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    grid-template-rows: repeat(4, 1fr);
+    gap: 5px; 
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 1 / 1; 
+    background-color: #33333300;
+    padding: 5px;
+    transform: perspective(1000px) rotateX(45deg); 
+    box-shadow: 0 0 50px rgba(255, 0, 0, 0.2);
+    position: relative;
+    z-index: 10;
+}
+
+.celda {
+    background-color: #444; 
+    cursor: default; 
+    border: 1px solid #555;
+    transition: background-color 0.1s, box-shadow 0.1s; 
+}
+
+.celda-activa {
+    background-color: rgb(0, 255, 255); 
+    box-shadow: 0 0 10px rgb(0, 255, 255), 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+#mensaje-juego {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #fff;
+    position: relative;
+    z-index: 10;
+}
+
+#tablero-puntuacion {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #444;
+    background-color: #222;
+    margin-top: 10px;
+    z-index: 10;
+    position: relative;
+}
+#max-nivel {
+    color: #0f0;
+    font-weight: bold;
+}
+
+/* --- ESTILOS DEL JUMPSCARE GIF --- */
+.jumpscare-elemento {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    opacity: 0; 
+    transition: none; 
+}
+
+.jumpscare-activo {
+    opacity: 1; 
+    animation: jumpscare-flicker 0.15s forwards; 
+}
+
+@keyframes jumpscare-flicker {
+    0% { filter: brightness(1.5) contrast(2); }
+    100% { filter: brightness(1) contrast(1); } 
+}
+
+/* --- ESTILOS DE BOTÓN Y PAUSA (CORREGIDOS) --- */
+.menu-btn {
+    padding: 10px 20px; 
+    font-size: 1.1em; 
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border: 1px solid #00ffff;
+    border-radius: 5px;
+    transition: all 0.2s;
+    text-align: center;
+}
+
+.menu-btn:hover {
+    background-color: #00ffff;
+    color: #000;
+    box-shadow: 0 0 10px #00ffff;
+}
+
+/* BOTÓN DE PAUSA (ICONO DISCRETO) */
+#btn-pausa {
+    position: fixed;
+    top: 15px; 
+    right: 15px; 
+    z-index: 900; 
+    
+    background-color: rgba(50, 50, 50, 0.5); 
+    color: #00ffff; 
+    border: 1px solid rgba(0, 255, 255, 0.5); 
+    border-radius: 5px;
+    padding: 10px 12px;
+    font-size: 1.2em;
+    width: auto;
+    display: none; /* Oculto por defecto, JS lo hace visible */
+}
+
+#btn-pausa:hover {
+    background-color: #00ffff;
+    color: #000;
+}
+
+/* MENÚ DE PAUSA (EL CENTRADO Y POSICIONAMIENTO) */
+#menu-pausa-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95);
+    color: white;
+    z-index: 9500; 
+    
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+#menu-pausa-contenido {
+    text-align: center;
+    padding: 40px;
+    border: 2px solid #00ffff;
+    background-color: #222;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+    width: 80%;
+    max-width: 350px;
+}
+
+#menu-pausa-contenido h2 {
+    color: #00ffff;
+    margin-bottom: 25px;
+}
+
+#menu-pausa-contenido .menu-btn {
+    width: 100%;
+    margin: 10px 0;
+}
+
+/* JUMPSCARE y SHAKE */
+#jumpscare-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0; 
+    visibility: hidden;
+    z-index: 9999; 
+    transition: opacity 0.05s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); } 10% { transform: translate(-1px, -2px) rotate(-1deg); } 20% { transform: translate(-3px, 0px) rotate(1deg); } 30% { transform: translate(3px, 2px) rotate(0deg); } 40% { transform: translate(1px, -1px) rotate(1deg); } 50% { transform: translate(-1px, 2px) rotate(-1deg); } 60% { transform: translate(-3px, 1px) rotate(0deg); } 70% { transform: translate(3px, 1px) rotate(-1deg); } 80% { transform: translate(-1px, -1px) rotate(1deg); } 90% { transform: translate(1px, 2px) rotate(0deg); } 100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.shake {
+    animation: shake 0.2s cubic-bezier(.36,.07,.19,.97) both infinite;
+    transform: translate3d(0, 0, 0); 
+}

@@ -1,0 +1,119 @@
+/* --- ESTILOS DE ESTRUCTURA Y FONDO DEL MENÚ --- */
+
+#menu-principal-solo {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95);
+    color: white;
+    z-index: 9000; 
+    /* CENTRADO CLAVE */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* El nuevo contenedor de la ventana principal - La CAJA ROJA GRANDE */
+#menu-central-contenido {
+    text-align: center;
+    padding: 30px 40px; 
+    
+    /* ... ESTILOS DE CAJA ROJA ... */
+
+    /* AÑADIR ESTO: Asegura que el contenido (los botones) se apile verticalmente */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Opcional: Centra los botones si no ocupan todo el ancho */
+    
+    width: 80%;
+    max-width: 450px; 
+}
+/* --- TÍTULO Y SUBTÍTULO (Con Brillo) --- */
+
+.menu-titulo-final {
+    color: white;
+    font-size: 2.3em;
+    font-weight: 700; 
+    font-family: serif; 
+    margin-top: 0;
+    margin-bottom: 5px; /* Reducido para acercar al subtítulo */
+    line-height: 1.1;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.9); /* Brillo blanco */
+}
+
+.menu-subtitulo-final {
+    color: #00ffff; /* Cian */
+    margin-bottom: 30px;
+    font-size: 1.0em;
+    text-decoration: underline; 
+}
+
+/* --- BOTONES (Estilo exacto de tu imagen) --- */
+
+.menu-btn-final {
+    display: block;
+    width: 100%;
+    padding: 15px 0; /* Padding vertical para la altura del botón */
+    margin: 15px 0; 
+    font-size: 1.3em;
+    
+    /* ESTILO DE LA CAJA GRIS CON BORDE CIAN */
+    background-color: #333333; 
+    color: white;
+    border: 2px solid #00ffff; /* Borde cian/aqua */
+    border-radius: 4px; 
+    
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.menu-btn-final:hover {
+    background-color: #00ffff;
+    color: #000;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+}
+
+/* --- VERSIÓN ALPHA --- */
+
+.menu-version-final {
+    margin-top: 30px;
+    color: #f00; /* Rojo */
+    font-size: 0.9em;
+}
+
+/* --- ESTILOS DE PANTALLAS SECUNDARIAS (Se mantienen) --- */
+#menu-secundario {
+    /* Posiciona la capa secundaria encima del diseño principal */
+    position: absolute;
+    width: 600px; 
+    height: 400px;
+    background-color: #1a1a1a;
+    border: 2px solid #f00;
+    border-radius: 8px;
+    padding: 30px;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+#sec-cuerpo {
+    text-align: left;
+    width: 100%;
+    padding: 0 10px;
+    font-size: 1em;
+}
+
+/* El botón de volver (usará la clase .menu-btn genérica) */
+.menu-btn {
+    padding: 10px 20px;
+    margin-top: 20px;
+}

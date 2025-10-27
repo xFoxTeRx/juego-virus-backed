@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moto Saltarina - Avanzado</title>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div id="game-container">
+        <!-- Elementos del Juego -->
+         <div id="suelo"></div> 
+        <div id="ui-layer">
+            <div id="score">Puntuación: <span>0</span></div>
+            <button id="pause-button">❚❚</button> <!-- Botón de Pausa -->
+        </div>
+        <div id="moto"></div>
+        <div id="obstaculo"></div>
+        <div id="obstaculo2" class="hidden"></div> <!-- Segundo obstáculo -->
+
+        <!-- Pantalla de Inicio (Menú Principal del Juego) -->
+        <div id="start-screen" class="overlay">
+            <h1>MOTO SALTARINA</h1>
+            <button id="new-game-button" class="menu-button">Juego Nuevo</button>
+            <button id="high-scores-button" class="menu-button">Puntuaciones</button>
+            <a href="../../index.html" class="back-link">Salir al Menú Principal</a>
+        </div>
+
+        <!-- Pantalla de Pausa -->
+        <div id="pause-screen" class="overlay hidden">
+            <h2>PAUSA</h2>
+            <button id="resume-button" class="menu-button">Reanudar</button>
+            <button id="restart-from-pause-button" class="menu-button">Reiniciar</button>
+            <a href="../../index.html" class="back-link">Salir al Menú Principal</a>
+        </div>
+
+        <!-- Pantalla de Fin de Juego -->
+        <div id="game-over-screen" class="overlay hidden">
+            <h2>¡HAS CHOCADO!</h2>
+            <p>Puntuación Final: <span id="final-score">0</span></p>
+            <button id="restart-button" class="menu-button">Jugar de Nuevo</button>
+            <button id="back-to-menu-button" class="menu-button">Volver al Menú</button>
+        </div>
+        
+        <!-- Pantalla de Puntuaciones -->
+        <div id="high-scores-screen" class="overlay hidden">
+            <h2>PUNTUACIONES MÁS ALTAS</h2>
+            <ol id="high-scores-list"></ol>
+            <button id="back-from-scores-button" class="menu-button">Volver</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

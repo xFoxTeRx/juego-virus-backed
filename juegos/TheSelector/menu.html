@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú - El Cementerio Olvidado</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="menu.css"> 
+</head>
+<body>
+    
+    <div id="fondo-glitch"></div> 
+    
+    <div id="menu-principal-solo">
+        <!-- PANTALLA 1: MENÚ PRINCIPAL -->
+        <div id="menu-central-contenido"> 
+            <h1 class="menu-titulo-final">EL CEMENTERIO OLVIDADO</h1>
+            <p class="menu-subtitulo-final">Menú Principal</p>
+            
+            <!-- 1. JUGAR: Enlace directo (JS lo interceptará para el audio, pero si falla el JS, igual navega) -->
+            <a href="juego.html" id="btn-jugar" class="menu-btn-final">JUGAR</a>
+            
+            <!-- 2. BOTONES INTERNOS -->
+            <button id="btn-instrucciones" class="menu-btn-final">INSTRUCCIONES</button>
+            <button id="btn-puntajes" class="menu-btn-final">PUNTAJES</button>
+            
+            <!-- 3. SALIR: Onclick directo para máxima fiabilidad -->
+            <button id="btn-volver-portal" class="menu-btn-final" onclick="window.location.href='../../index.html'">SALIR AL PORTAL</button>
+            
+            <p class="menu-version-final">Versión Alpha</p>
+        </div>
+        
+        <!-- PANTALLA 2: SUBMENÚ (Oculto por defecto) -->
+        <div id="menu-secundario" style="display: none;">
+            <h2 id="sec-titulo">Título</h2>
+            <div id="sec-cuerpo">Contenido</div>
+            <button id="btn-volver" class="menu-btn">VOLVER AL MENÚ</button> 
+        </div>
+    </div>
+
+    <!-- SCRIPTS: Ambos como módulos para permitir 'import' -->
+    <script src="../../session.js" type="module"></script>
+    <script src="menu-logic.js" type="module"></script>
+
+</body>
+</html>

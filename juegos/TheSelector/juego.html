@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego - El Desafío de la Secuencia</title>
+    <!-- Asegúrate de que este nombre sea correcto -->
+    <link rel="stylesheet" href="juego.css">
+    <!-- Enlace a FontAwesome (necesario para el icono de Pausa) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    
+    <!-- CAPA DE FONDO ANIMADA (Glitch) -->
+    <div id="fondo-glitch"></div> 
+
+    <div id="contenedor-juego">
+        
+        <div id="area-tension">
+            <p id="nivel-info">Cargando..</p>
+        </div>
+
+        <div id="cuadricula-suelo">
+            <!-- 16 Celdas de la cuadrícula -->
+            <div class="celda" data-id="0"></div>
+            <div class="celda" data-id="1"></div>
+            <div class="celda" data-id="2"></div>
+            <div class="celda" data-id="3"></div>
+            <div class="celda" data-id="4"></div>
+            <div class="celda" data-id="5"></div>
+            <div class="celda" data-id="6"></div>
+            <div class="celda" data-id="7"></div>
+            <div class="celda" data-id="8"></div>
+            <div class="celda" data-id="9"></div>
+            <div class="celda" data-id="10"></div>
+            <div class="celda" data-id="11"></div>
+            <div class="celda" data-id="12"></div>
+            <div class="celda" data-id="13"></div>
+            <div class="celda" data-id="14"></div>
+            <div class="celda" data-id="15"></div>
+        </div>
+
+        <div id="mensaje-juego">Sigue la secuencia de luces.</div>
+        
+        <!-- BOTÓN DE PAUSA (Icono Discreto) -->
+        <button id="btn-pausa" class="icono-btn-pausa">
+            <i class="fas fa-bars"></i>
+        </button>
+
+    </div>
+    
+    <!-- Tablero de Puntuación (Leaderboard Local) -->
+    <div id="tablero-puntuacion">
+        <h3>Puntuación Máxima (Nivel): <span id="max-nivel">0</span></h3>
+        <p><small>El susto se activa en Nivel 5 o al fallar 3 veces.</small></p>
+    </div>
+
+    <!-- La capa de Jumpscare (Ahora con el GIF) -->
+    <div id="jumpscare-overlay">
+        <img height="100%" width="100%"  id="jumpscare-img" src="../../gifs/4af314f37beeb21ec9a54089dffef1b7.gif" alt="Susto Critico" class="jumpscare-elemento">
+    </div>
+
+    <!-- MENÚ DE PAUSA (Oculto) -->
+    <div id="menu-pausa-overlay" style="display: none;">
+        <div id="menu-pausa-contenido">
+            <h2>PAUSA</h2>
+            <button id="btn-continuar" class="menu-btn">CONTINUAR</button>
+            <button id="btn-reiniciar-juego" class="menu-btn">REINICIAR JUEGO</button>
+            <button id="btn-salir-menu-principal" class="menu-btn">MENÚ PRINCIPAL</button> 
+        </div>
+    </div>
+
+    <script src="juego.js" type="module"></script> 
+
+</body>
+</html>

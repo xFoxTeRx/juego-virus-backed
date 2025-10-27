@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aplasta la Marmota</title>
+  <link rel="stylesheet" href="css/juego.css">
+</head>
+<body>
+  <img src="img/fondo.png" alt="Fondo" class="fondo-juego">
+  <div class="juego-container">
+    <!-- Fondo del juego -->
+    <div class="juego-fondo">
+      
+      <!-- Sección superior -->
+      <div class="juego-header">
+        <div class="tiempo-box">
+          <h2>TIEMPO</h2>
+          <p id="tiempo">Tiempo: 0s</p>
+        </div>
+        <button class="btn-pausa">⏸️</button>
+      </div>
+
+      <!-- Panel lateral izquierdo (puntaje y fallas) -->
+      <div class="panel-info">
+        <p id="puntaje">Puntaje: 0</p>
+        <p id="fallas">Fallas: 0</p>
+      </div>
+
+      <!-- Zona de agujeros -->
+      <div class="zona-agujeros">
+        <div class="fila">
+          <div class="agujero"><img src="img/agujero.png" alt="agujero"></div>
+          <div class="agujero"><img src="img/agujero.png" alt="agujero"></div>
+          <div class="agujero"><img src="img/agujero.png" alt="agujero"></div>
+        </div>
+        <div class="fila">
+          <div class="agujero"><img src="img/agujero.png" alt="agujero"></div>
+          <div class="agujero"><img src="img/agujero.png" alt="agujero"></div>
+          <div class="agujero"><img src="img/agujero.png" alt="agujero"></div>
+        </div>
+        <div class="fila">
+          <div class="agujero"><img src="img/agujero.png" alt="agujero"></div>
+          <div class="agujero"><img src="img/m1.png" alt="marmota" class="marmota"></div>
+          <div class="agujero"><img src="img/agujero.png" alt="agujero"></div>
+        </div>
+      </div>
+
+      <!-- Marmota objetivo -->
+      <div class="objetivo">
+        <img src="img/m2.png" alt="Marmota objetivo">
+        <p>Atrápame</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Menú de pausa -->
+  <div class="menu-pausa">
+    <div class="menu-pausa-contenido">
+      <h2>Pausa</h2>
+      <button id="btn-continuar">Continuar</button>
+      <button id="btn-reiniciar">Reiniciar</button>
+      <button id="btn-menu">Menu Principal</button>
+    </div>
+  </div>
+
+  <script src="js/juego.js"></script>
+</body>
+</html>

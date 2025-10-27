@@ -1,0 +1,162 @@
+/* --- CONFIGURACIÓN GENERAL --- */
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #0d0113;
+    font-family: 'Arial', sans-serif;
+    color: #e6e6fa;
+    overflow: hidden;
+}
+
+#game-container {
+    width: 800px;
+    height: 400px;
+    border: 3px solid #98ff98;
+    position: relative;
+    overflow: hidden;
+    /* ACTUALIZADO: Fondo de cielo azul claro */
+    background-color: #87CEEB; 
+}
+
+/* --- NUEVO: SUELO EN MOVIMIENTO --- */
+#suelo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 1600px; /* El doble del ancho del juego para un bucle suave */
+    height: 80px;  /* Altura del suelo, puedes ajustarla */
+    background-image: url('../img/suelo.png'); /* <<< USA TU IMAGEN DEL SUELO */
+    background-repeat: repeat-x; /* Repite la imagen horizontalmente */
+    z-index: 5; /* Por debajo de la moto y los obstáculos */
+    animation: scroll-suelo 4s linear infinite; /* Animación de desplazamiento */
+    
+    /* PRO TIP: Esto hace que las imágenes pixel art no se vean borrosas */
+    image-rendering: pixelated; 
+}
+
+@keyframes scroll-suelo {
+    from { transform: translateX(0); }
+    to { transform: translateX(-800px); } /* Mueve la mitad del ancho total */
+}
+
+/* --- CAPA DE INTERFAZ (Puntuación y Pausa) --- */
+#ui-layer {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 15;
+}
+
+#score {
+    font-size: 1.5em;
+    font-family: 'Creepster', cursive;
+    color: #00f953;
+    /* Añadimos una sombra para que se lea mejor sobre el cielo */
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+}
+
+#pause-button {
+    font-size: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid white;
+    color: white;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+#pause-button:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* --- ELEMENTOS DEL JUEGO --- */
+#moto {
+    width: 90px;
+    height: 75px;
+    background-image: url('../img/moto.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    /* Unificamos el valor de la posición vertical */
+    bottom: 50px; /* <<< VALOR CLAVE */
+    left: 50px;
+    z-index: 10;
+}
+
+/* Estilos base para los obstáculos */
+#obstaculo, #obstaculo2 {
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    position: absolute;
+    /* Usamos exactamente el mismo valor que la moto */
+    bottom: 75px; /* <<< VALOR CLAVE (CORREGIDO) */
+    z-index: 10;
+}
+
+/* Tamaños específicos para cada obstáculo (esto no cambia) */
+#obstaculo {
+    width: 70px;
+    height: 55px;
+    background-image: url('../img/obstaculo_roca.png');
+}
+
+#obstaculo2 {
+    width: 60px;
+    height: 100px;
+    bottom: 66px;
+    background-image: url('../img/obstaculo_barril.png');
+}
+
+
+/* --- PANTALLAS SUPERPUESTAS (MENÚS) --- */
+/* (Esta sección no necesita cambios, puedes dejarla como está) */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(13, 1, 19, 0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 20;
+}
+
+.hidden { display: none; }
+
+.overlay h1, .overlay h2 {
+    font-family: 'Creepster', cursive;
+    font-size: 4em;
+    color: #98ff98;
+    margin-bottom: 30px;
+}
+
+.overlay p { font-size: 1.5em; margin: 20px 0; }
+
+.menu-button {
+    background-color: #8d3941;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1.2em;
+    min-width: 220px;
+    margin-bottom: 15px;
+}
+
+.menu-button:hover { background-color: #a54550; box-shadow: 0 0 10px #8d3941; }
+.back-link { margin-top: 20px; color: #98ff98; text-decoration: none; font-size: 1em; }
+#high-scores-list { list-style: decimal; font-size: 1.8em; color: white; padding-left: 0; width: 200px; text-align: center; }
+#high-scores-list li { margin-bottom: 10px; }

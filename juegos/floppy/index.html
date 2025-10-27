@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Flappy Mini - Menú</title>
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div class="wrap" id="menuWrap">
+    <canvas id="bgCanvas"></canvas>
+
+    <div class="center-screen">
+      <div class="panel" id="menuPanel">
+        <h1> Flappy Mini</h1>
+        <button class="btn" id="btnJugar">Jugar</button>
+        <button class="btn" id="btnInstrucciones">Instrucciones</button>
+        <button class="btn" id="btnPuntajes">Puntajes</button>
+        <button class="btn" id="btnSalir">Salir</button>
+      </div>
+
+      <div class="panel oculto" id="panelInstrucciones">
+        <h2>📘 Instrucciones</h2>
+        <p>
+          Presiona <strong>Espacio</strong> o toca la pantalla para hacer que el ave salte.<br>
+          Evita los tubos y el suelo para conseguir más puntos.
+        </p>
+        <button class="btn volver">Volver</button>
+      </div>
+
+      <div class="panel oculto" id="panelPuntajes">
+        <h2>🏆 Mejores Puntajes</h2>
+        <ul id="listaPuntajes"></ul>
+        <button class="btn volver">Cerrar</button>
+      </div>
+    </div>
+
+
+  </div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

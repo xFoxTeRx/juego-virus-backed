@@ -1,0 +1,165 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juegos Virus - Portal de Terror y Glitch</title>
+    
+    <!-- Fuente Creepster -->
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Tu CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- LIBRERÍA DE GOOGLE SIGN-IN (Agregada aquí) -->
+    <!-- NECESARIO para que la función 'google.accounts.id.initialize' funcione -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+    
+    <!-- FONDO ANIMADO -->
+    <div id="fondo-glitch"></div>
+
+    <!-- HOTBAR -->
+    <div class="hotbar">
+        <div class="logo">
+            <span class="logo-icon fas fa-skull"></span>
+            Juegos Virus
+        </div>
+
+        <div class="auth-section">
+            <div class="nav-links">
+                <a href="#contactos">Contactos</a>
+            </div>
+            
+            <!-- EL DIV DEL BOTÓN DE GOOGLE: Ahora está VACÍO. El script lo llenará. -->
+            <div id="google-login-button"></div>
+            
+        </div>
+    </div>
+
+    <!-- MENÚ DE FILTRO DE JUEGOS -->
+    <div class="filter-bar">
+        <button id="btnTodos" class="filter-btn active"> Todos los Juegos</button>
+        <button id="btnFavoritos" class="filter-btn"> Juegos Favoritos</button>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="main-content">
+        <header>
+            <h1 id="titulo-seccion">Catálogo de Juegos</h1>
+        </header>
+
+        <!-- Área de Juegos -->
+        <div class="game-area">
+            <div class="game-grid" id="gameGrid">
+                <!-- Juego 1 -->
+                <a href="juegos/TheSelector/menu.html" class="game-card image-card"
+                   data-title="The Selector" data-img="images/selector.png" data-link="juegos/TheSelector/menu.html">
+                    <img width="10%" height="10%" src="images/selector.png" alt="The Selector">
+                    <span class="game-title">The Selector</span>
+                    <button class="fav-btn">⭐</button>
+                </a>
+
+                <!-- Juego 2 -->
+                <a href="juegos/moto_saltarina/index.html" class="game-card image-card"
+                    data-title="Moto Saltarina" data-img="images/moto.png" data-link="juegos/moto_saltarina/index.html">
+                        <img src="images/moto.png" alt="Moto Saltarina">
+                        <span class="game-title">Moto Saltarina</span>
+                        <button class="fav-btn">⭐</button>
+                </a>
+
+                <!-- Juego 3 -->
+                <div class="game-card image-card"
+                     data-title="Guardianes del Terror" data-img="images/guardianes.jpg" data-link="#">
+                    <img src="images/guardianes.jpg" alt="Guardianes del Terror">
+                    <span class="game-title">Guardianes del Terror</span>
+                    <button class="fav-btn">⭐</button>
+                </div>
+
+                <!-- Juego 4 -->
+                <div class="game-card image-card"
+                     data-title="La Calabaza Mutante" data-img="images/calabaza.jpg" data-link="#">
+                    <img src="images/calabaza.jpg" alt="La Calabaza Mutante">
+                    <span class="game-title">La Calabaza Mutante</span>
+                    <button class="fav-btn">⭐</button>
+                </div>
+
+                <!-- Juego 5 -->
+                <a href="juegos/marmota/index.html" class="game-card image-card"
+                   data-title="Aplasta la Marmota" data-img="images/marmota.jpg" data-link="juegos/marmota/index.html">
+                    <img  width="100%" height="100%" src="images/marmota.jpg" alt="Aplasta la Marmota">
+                    <span class="game-title">Aplasta la Marmota</span>
+                    <button class="fav-btn">⭐</button>
+                </a>
+
+                <!-- Juego 6 -->
+                <a href="juegos/floppy/index.html" class="game-card image-card"
+                   data-title="Floppy" data-img="images/floppy.jpg" data-link="juegos/floppy/index.html">
+                    <img src="images/floppy.jpg" alt="Floppy">
+                    <span class="game-title">Floppy</span>
+                    <button class="fav-btn">⭐</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="contactos">
+        <div class="contact-container">
+            <div class="contact-form">
+                <form id="contactForm">
+                    <input type="text" name="name" placeholder="Name" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <textarea name="message" placeholder="Message" required></textarea>
+                    
+                    <div class="form-buttons">
+                        <button type="submit" class="btn-send">SEND</button>
+                        <button type="reset" class="btn-reset">RESET</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="contact-details">
+                <div class="detail-item">
+                    <h4><span class="icon fas fa-home"></span> Mailing Address</h4>
+                    <p>
+                        Untitled Corporation<br>
+                        1234 Somewhere Rd #987<br>
+                        Nashville, TN 00000-0000
+                    </p>
+                </div>
+                
+                <div class="detail-item">
+                    <h4><span class="icon fas fa-envelope"></span> Email</h4>
+                    <p><a href="mailto:info@untitled.tld">info@untitled.tld</a></p>
+                </div>
+
+                <div class="detail-item">
+                    <h4><span class="icon fas fa-phone"></span> Phone</h4>
+                    <p>(000) 555-0000</p>
+                </div>
+
+                <div class="detail-item" style="grid-column: 1 / 3;">
+                    <h4><span class="icon fas fa-comment"></span> Social</h4>
+                    <div class="social-links">
+                        <a href="#">@untitled-corp</a>
+                        <a href="#">linkedin.com/untitled</a>
+                        <a href="#">facebook.com/untitled</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 30px; font-size: 0.8em; opacity: 0.7;">© 2025 Juegos Virus. Todos los derechos reservados.</p>
+    </footer>
+
+<!-- En tu index.html, DEBES importar session.js -->
+
+    <script src="session.js" type="module"></script>
+    <!-- Tu JavaScript con la lógica de Login/CRUD -->
+    <script src="script.js"></script>
+</body>
+</html>
