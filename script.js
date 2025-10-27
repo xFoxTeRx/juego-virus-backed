@@ -4,7 +4,7 @@
 
 // --- Configuración de Conexión ---
 // Reemplaza con tu CLIENT_ID real de Google
-
+const CLIENT_ID = window.CLIENT_ID;
 // La URL base de tu Servidor Backend (debe estar corriendo en tu terminal)
 const API_HOST = "https://juegos-virus-api.onrender.com"; 
 const LOGIN_API_URL = `${API_HOST}/api/auth/google`; 
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------------------------------------------
     if (typeof google !== 'undefined') {
         google.accounts.id.initialize({
-            client_id: API_HOST,
+            client_id: CLIENT_ID,
             callback: handleCredentialResponse // Función que maneja el token
         });
         

@@ -72,6 +72,14 @@ connectToMongoDB();
 // --- RUTAS API (CRUD) ---
 
 // [R] Ruta de Bienvenida
+
+// Ruta para exponer CLIENT_ID al frontend
+app.get('/config.js', (req, res) => {
+    res.type('.js');
+    res.send(`window.CLIENT_ID = "${process.env.CLIENT_ID}";`);
+});
+
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
