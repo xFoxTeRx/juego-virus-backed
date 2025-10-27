@@ -1,6 +1,11 @@
 // ===================================================================
 // server.js - CÓDIGO FINAL Y COMPLETO
 // ===================================================================
+
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+
 require('dotenv').config();
 const express = require('express');
 const { MongoClient, ServerApiVersion } = require('mongodb');
@@ -15,6 +20,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
 // --- Configuración de Seguridad y Base de Datos ---
 // **¡IMPORTANTE! PEGA TUS CREDENCIALES REALES AQUÍ**
 const CLIENT_ID = process.env.CLIENT_ID;
@@ -26,6 +37,10 @@ let db;
 
 // --- Middleware ---
 app.use(express.json());
+
+app.use(express.static(__dirname));
+
+
 app.use(cors({
     origin: [
         'http://localhost:3000',
@@ -60,7 +75,7 @@ connectToMongoDB();
 
 // [R] Ruta de Bienvenida
 app.get('/', (req, res) => {
-    res.send('Servidor de API de Juegos V4.0. Listo.');
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // [C y R] RUTA DE LOGIN (Con Lógica de Seguridad para Progreso)
