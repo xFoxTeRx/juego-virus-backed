@@ -1,0 +1,12 @@
+{
+  "name": "juego-virus-backend",
+  "version": "1.0.0",
+  "description": "Servidor backend del juego en Node.js",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
