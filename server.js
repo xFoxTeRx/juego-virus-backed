@@ -2,8 +2,7 @@
 // server.js - CÓDIGO FINAL Y COMPLETO
 // ===================================================================
 
-import path from 'path';
-import { fileURLToPath } from 'url';
+
 
 
 require('dotenv').config();
@@ -11,19 +10,18 @@ const express = require('express');
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const { OAuth2Client } = require('google-auth-library');
 const cors = require('cors');
-
-//
 const path = require('path');
-app.use(express.static(path.join(__dirname, 'public')));
-//
+
+
+
+
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 
 // --- Configuración de Seguridad y Base de Datos ---
