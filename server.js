@@ -7,8 +7,13 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 const { OAuth2Client } = require('google-auth-library');
 const cors = require('cors');
 
+//
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'public')));
+//
+
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // --- Configuración de Seguridad y Base de Datos ---
 // **¡IMPORTANTE! PEGA TUS CREDENCIALES REALES AQUÍ**
@@ -22,7 +27,14 @@ let db;
 // --- Middleware ---
 app.use(express.json());
 app.use(cors({
-    origin: ['http://localhost:3000', 'http://127.0.0.1', 'http://cochabamba.free.nf', 'http://localhost:5500', 'http://127.0.0.1:5501']
+    origin: [
+        'http://localhost:3000',
+        'http://prueba10.infinityfree.me',
+        'http://127.0.0.1', 
+        'http://cochabamba.free.nf',
+        'http://localhost:5500', 
+        'http://127.0.0.1:5501',
+        'https://juegos-virus-api.onrender.com']
 }));
 
 // --- Conexión a MongoDB ---

@@ -4,7 +4,7 @@
 require('dotenv').config();
 // --- VARIABLES GLOBALES DE CONFIGURACIÓN Y ESTADO ---
 const CLIENT_ID = process.env.CLIENT_ID;
-const API_HOST = "http://localhost:3000";
+const API_HOST = "https://juegos-virus-api.onrender.com";
 const LOGIN_API_URL = `${API_HOST}/api/auth/google`;
 const SAVE_API_URL = `${API_HOST}/api/juegos/guardar`;
 const LEADERBOARD_API_URL = `${API_HOST}/api/leaderboard`;
