@@ -117,3 +117,107 @@
     padding: 10px 20px;
     margin-top: 20px;
 }
+
+/* === ESTILOS RESPONSIVOS PARA MÓVILES === */
+@media screen and (max-width: 768px) {
+
+  /* Fondo del menú ocupa toda la pantalla */
+  #menu-principal-solo {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  /* Caja principal del menú */
+  #menu-central-contenido {
+    width: 90%;
+    max-width: 320px;
+    padding: 20px;
+  }
+
+  /* Título y subtítulo más pequeños */
+  .menu-titulo-final {
+    font-size: 1.8em;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+  }
+
+  .menu-subtitulo-final {
+    font-size: 0.9em;
+    margin-bottom: 20px;
+  }
+
+  /* Botones más compactos */
+  .menu-btn-final {
+    font-size: 1.1em;
+    padding: 12px 0;
+    margin: 10px 0;
+  }
+
+  /* Versión alfa más pequeña */
+  .menu-version-final {
+    font-size: 0.8em;
+    margin-top: 15px;
+  }
+
+  /* --- Ajustes para la tabla de puntajes --- */
+  #menu-secundario {
+    width: 90%;
+    height: auto;
+    padding: 15px;
+    border-width: 1.5px;
+    font-size: 0.9em;
+  }
+
+  #menu-secundario table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  #menu-secundario th,
+  #menu-secundario td {
+    padding: 6px;
+    font-size: 0.85em;
+  }
+
+  #menu-secundario th {
+    background-color: #00ffff33;
+    color: #00ffff;
+  }
+
+  /* Botón de volver o salir */
+  .menu-btn {
+    font-size: 0.9em;
+    padding: 8px 14px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .menu-titulo-final {
+    font-size: 1.5em;
+  }
+  .menu-subtitulo-final {
+    font-size: 0.8em;
+  }
+  #menu-secundario {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .menu-btn-final {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  #menu-central-contenido {
+    width: 95%;
+    padding: 10px;
+  }
+  .menu-titulo-final {
+    font-size: 1.3em;
+  }
+  .menu-btn-final {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+}
